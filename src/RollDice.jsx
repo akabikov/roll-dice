@@ -6,7 +6,7 @@ class RollDice extends React.Component {
     render() {
         return (
             <div>
-                <Die />
+                <Die num="6"/>
             </div>
         );
     }
