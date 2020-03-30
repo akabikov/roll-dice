@@ -3,6 +3,7 @@ import './Die.css';
 
 const ICON_CLASS = "fas fa-dice-";
 const DIGITS = ["", "one", "two", "three", "four", "five", "six"];
+const ANIMATION_CLASS = "animated wobble";
 
 class Die extends React.Component {
 
@@ -12,11 +13,12 @@ class Die extends React.Component {
 
     render() {
         return(
-            <div className="die">
-                <div className={this.props.animation}>
-                    <i className={this.getIconClass()}></i>
-                </div>
-            </div>
+            <i 
+                className={`die 
+                            ${this.getIconClass()} 
+                            ${this.props.isRolling ? ANIMATION_CLASS : ""}`}>
+
+            </i>
         )
     }
 }

@@ -3,21 +3,21 @@ import './RollDice.css';
 import Die from './Die';
 
 const MAX_NUM = 6;
-const ANIMATION_CLASS = "animated wobble";
 const ANIMATION_DURATION = 1000;
 
 class RollDice extends React.Component {
     
     state = {die1 : 1,
              die2 : 1,
-             animation : ""}
+             isRolling : false}
 
     roll = () => {
         this.setState({die1 : this.getNum(),
                        die2 : this.getNum(),
-                       animation : ANIMATION_CLASS,
+                       isRolling : true,
                     });
-        setTimeout(() => this.setState({animation : ""}), ANIMATION_DURATION);
+        
+        setTimeout(() => this.setState({isRolling : false}), ANIMATION_DURATION);
     }
 
     getNum() {
@@ -25,19 +25,19 @@ class RollDice extends React.Component {
     }
     
     render() {
-        let {die1, die2, animation} = this.state;
+        let {die1, die2, isRolling} = this.state;
 
         return (
             <div>
                 <div className="roll-dice">
-                    <Die num={die1} animation={animation} />
-                    <Die num={die2} animation={animation} />
+                    <Die num={die1} isRolling={isRolling} />
+                    <Die num={die2} isRolling={isRolling} />
                 </div>
                 <button 
                     className="roll-dice-button"
                     onClick={this.roll} 
-                    disabled={!!animation}>
-                        {animation ? "Rolling..." : "Roll Dice!"}
+                    disabled={isRolling}>
+                        {isRolling ? "Rolling..." : "Roll Dice!"}
                 </button>
             </div>
         );
