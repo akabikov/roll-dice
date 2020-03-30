@@ -1,0 +1,15 @@
+.roll-dice {
+    display: flex;
+    justify-content: center;
+    font-size: 10rem;
+    color: mediumslateblue;
+}
+
+.roll-dice-button {
+    background: rgb(85, 72, 167);
+    font-size: 2rem;
+    color: white;
+    border-radius: 10px;
+    width: 12rem;
+    height: 4rem;
+}

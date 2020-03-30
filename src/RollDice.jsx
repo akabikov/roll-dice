@@ -4,7 +4,7 @@ import Die from './Die';
 
 const MAX_NUM = 6;
 const ANIMATION_CLASS = "animated wobble";
-const ANIMATION_DELAY = 1000;
+const ANIMATION_DURATION = 1000;
 
 class RollDice extends React.Component {
     
@@ -17,7 +17,7 @@ class RollDice extends React.Component {
                        die2 : this.getNum(),
                        animation : ANIMATION_CLASS,
                     });
-        setTimeout(() => this.setState({animation : ""}), ANIMATION_DELAY);
+        setTimeout(() => this.setState({animation : ""}), ANIMATION_DURATION);
     }
 
     getNum() {
@@ -25,14 +25,19 @@ class RollDice extends React.Component {
     }
     
     render() {
+        let {die1, die2, animation} = this.state;
+
         return (
             <div>
-                <Die num={this.state.die1} animation={this.state.animation} />
-                <Die num={this.state.die2} animation={this.state.animation} />
+                <div className="roll-dice">
+                    <Die num={die1} animation={animation} />
+                    <Die num={die2} animation={animation} />
+                </div>
                 <button 
+                    className="roll-dice-button"
                     onClick={this.roll} 
-                    disabled={!!this.state.animation}>
-                        {this.state.animation ? "Rolling..." : "Roll Dice!"}
+                    disabled={!!animation}>
+                        {animation ? "Rolling..." : "Roll Dice!"}
                 </button>
             </div>
         );

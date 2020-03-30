@@ -12,8 +12,10 @@ class Die extends React.Component {
 
     render() {
         return(
-            <div className={this.props.animation}>
-                <i className={this.getIconClass()}></i>
+            <div className="die">
+                <div className={this.props.animation}>
+                    <i className={this.getIconClass()}></i>
+                </div>
             </div>
         )
     }
