@@ -5,7 +5,6 @@ const ICON_CLASS = "fas fa-dice-";
 const DIGITS = ["", "one", "two", "three", "four", "five", "six"];
 
 class Die extends React.Component {
-    static defaultProps = {num : 1}
 
     getIconClass() {
         return ICON_CLASS + DIGITS[+this.props.num];
@@ -13,7 +12,7 @@ class Die extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className={this.props.animation}>
                 <i className={this.getIconClass()}></i>
             </div>
         )
