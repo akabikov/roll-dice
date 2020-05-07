@@ -28,7 +28,7 @@ class RollDice extends React.Component {
         let {die1, die2, isRolling} = this.state;
 
         return (
-            <div>
+            <>
                 <div className="roll-dice">
                     <Die num={die1} isRolling={isRolling} />
                     <Die num={die2} isRolling={isRolling} />
@@ -39,7 +39,7 @@ class RollDice extends React.Component {
                     disabled={isRolling}>
                         {isRolling ? "Rolling..." : "Roll Dice!"}
                 </button>
-            </div>
+            </>
         );
     }
 }
